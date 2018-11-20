@@ -1,9 +1,10 @@
 <?php
 
   require_once "Api.php";
+  r
   require_once "././model/ComentarioModel.php";
 
-  class ComentarioController extends Api{
+  class ComentarioController extends Api {
     private $model;
 
     public  __construct(){
