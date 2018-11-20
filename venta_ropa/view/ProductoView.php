@@ -13,10 +13,11 @@ class ProductoView
 
   }
 
-  function Mostrar($Titulo, $Productos,$Editable,$EsAdmin){
+  function Mostrar($Titulo, $Productos,$marcas,$Editable,$EsAdmin){
 
     $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
     $this->Smarty->assign('Productos',$Productos); // tablas (?)
+    $this->Smarty->assign('marcas',$marcas);
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->display('templates/producto.tpl');

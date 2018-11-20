@@ -12,7 +12,11 @@ class ConfigApi
       'marca#GET'=> 'TareasApiController#GetMarca',
       'marca#DELETE'=> 'TareasApiController#DeleteMarca',
       'marca#POST'=> 'TareasApiController#InsertMarca',
-      'marca#PUT'=> 'TareasApiController#UpdateMarca'
+      'marca#PUT'=> 'TareasApiController#UpdateMarca',
+      'comentario#GET'=> 'ComentarioController#getComentarios',
+      'comentario#DELETE'=> 'ComentarioController#borrarComentario',
+      'comentario#POST'=> 'ComentarioController#InsertarComentario',
+
     ];
 
 }

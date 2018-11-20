@@ -5,11 +5,11 @@
 
     <div class="container">
       <h2>Detalle</h2>
-      <form>
+
         <div class="form-group">
           <label for="nombreForm">Nombre</label>
-          <input type="text" class="form-control id="nombreForm" name="nombreForm" value="{$Producto["nombre"]}" readonly="readonly">
-        </div>
+          <input type="text" class="form-control" id='nombreForm' name="nombreForm" value="{$Producto['nombre']}">
+
         <div class="form-group">
           <label for="precioForm">Precio</label>
           <input type="text" class="form-control" id="precioForm" name="precioForm" value="{$Producto["precio"]}" readonly="readonly">
@@ -29,8 +29,11 @@
                 <input type="text" class="form-control" id="marcaForm" name="materialForm" value="{$marca["nombre"]}" readonly="readonly">
               {/if}
             {/foreach}
-          </select>
+            <button type="button" name="button" id="traerComments">Ver Comentarios</button>
+            <div id="container-comentario">
+
+            </div>
         </div>
-      </form>
+
     </div>
 {include file="footer.tpl"}

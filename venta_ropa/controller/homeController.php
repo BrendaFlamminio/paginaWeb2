@@ -31,6 +31,16 @@ class HomeController extends SecuredController
       $Productos = $this->modelProducto->GetProductos();
       $Marcas = $this->modelMarca->GetMarcas();
       $this->view->Mostrar($this->Titulo, $Productos, $Marcas,$this->IsUserLogged(),$this->EsAdmin());
+
+  }
+
+    function filtrarPorMarca(){
+    $id_marca =$_POST["marca"];
+    $Marcas = $this->modelMarca->GetMarcas();
+    $productosFiltrados = $this ->modelProducto->GetProductosFiltrados($id_marca);
+    session_start();
+    $this->view->Mostrar($this->Titulo,$productosFiltrados,$Marcas,$this->IsUserLogged(),$this->EsAdmin());
+
   }
 
   function MostrarDetalleProducto($param){

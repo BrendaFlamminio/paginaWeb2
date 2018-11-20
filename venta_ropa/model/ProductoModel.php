@@ -21,7 +21,7 @@ class ProductoModel
   function GetProductos(){
 
       //$sentencia = $this->db->prepare( "select * from producto");
-      $sentencia = $this->db->prepare( "select producto.*, marca.nombre as nombre_categoria from producto inner join marca on producto.id_marca = marca.id_marca order by marca.nombre");
+      $sentencia = $this->db->prepare( "select producto.*, marca.nombre as nombre_marca from producto inner join marca on producto.id_marca = marca.id_marca order by marca.nombre");
       $sentencia->execute();
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
@@ -29,6 +29,7 @@ class ProductoModel
   function GetMarcas(){
     $sentencia = $this->db->prepare( "select * from marca");
     $sentencia->execute();
+
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
@@ -37,6 +38,13 @@ class ProductoModel
       $sentencia = $this->db->prepare( "select * from producto where id_producto=?");
       $sentencia->execute(array($id));
       return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
+
+  function GetProductosFiltrados($id){
+    //$sentencia = $this->db->prepare( "select * from producto");
+    $sentencia = $this->db->prepare( "select producto.*, marca.nombre as nombre_marca from producto inner join marca on producto.id_marca = marca.id_marca where producto.id_marca=? order by marca.nombre");
+    $sentencia->execute(array($id));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
   function InsertarProducto($nombre,$precio,$descripcion,$material,$id_marca){

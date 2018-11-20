@@ -2,12 +2,14 @@
 
 require_once  "./view/ProductoView.php";
 require_once  "./model/ProductoModel.php";
+require_once  "./model/MarcaModel.php";
 require_once  "SecuredController.php";
 
 class ProductoController extends SecuredController
 {
   private $view;
   private $model;
+  private $marcaModel;
   private $Titulo;
   private $Editable;
   private $EsAdmin;
@@ -18,6 +20,7 @@ class ProductoController extends SecuredController
 
     $this->view = new ProductoView();
     $this->model = new ProductoModel();
+    $this->marcaModel = new MarcaModel();
     $this->Titulo = "Lista de Productos";
     $this->Editable=IsUserLogged();
     $this->EsAdmin=EsAdmin();
@@ -27,8 +30,11 @@ class ProductoController extends SecuredController
 
   function Home(){
       $Productos = $this->model->GetProductos();
-      $this->view->Mostrar($this->Titulo, $Productos,$Editable,$EsAdmin);
+      $marcas = $this->marcaModel->GetMarcas();
+      $this->view->Mostrar($this->Titulo, $Productos,$marcas,$Editable,$EsAdmin);
   }
+
+  
 
   function editarProducto($param){
       $id_producto = $param[0];

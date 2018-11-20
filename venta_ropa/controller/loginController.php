@@ -61,6 +61,7 @@ class LoginController
     $pass = $_POST["IdPassword"];
     $hash = password_hash($pass, PASSWORD_DEFAULT);
     $dbUser = $this->model->postUser($user,$hash);
+    header(HOME);
   }
 }
 
