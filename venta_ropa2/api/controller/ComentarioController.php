@@ -1,7 +1,7 @@
 <?php
 
   require_once "Api.php";
-  require_once "././model/ComentarioModel.php";
+  require_once "../model/ComentarioModel.php";
 
   class ComentarioController extends Api{
     private $model;

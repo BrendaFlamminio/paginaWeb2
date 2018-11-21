@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-11-2018 a las 17:39:41
--- Versión del servidor: 10.1.32-MariaDB
--- Versión de PHP: 7.2.5
+-- Tiempo de generación: 21-11-2018 a las 15:08:56
+-- Versión del servidor: 10.1.35-MariaDB
+-- Versión de PHP: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,16 +25,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `comentarios`
+-- Estructura de tabla para la tabla `comentario`
 --
 
-CREATE TABLE `comentarios` (
+CREATE TABLE `comentario` (
   `id_comentario` int(11) NOT NULL,
-  `id_usuario` int(11) NOT NULL,
-  `comentario` varchar(500) NOT NULL,
-  `puntaje` int(1) NOT NULL,
+  `texto` varchar(400) NOT NULL,
+  `puntaje` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
   `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `comentario`
+--
+
+INSERT INTO `comentario` (`id_comentario`, `texto`, `puntaje`, `id_user`, `id_producto`) VALUES
+(1, 'soy el primer comentario', 5, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -59,7 +66,8 @@ INSERT INTO `marca` (`id_marca`, `nombre`, `site_url`, `email`) VALUES
 (3, 'Mazucena', 'Azucena', 'www.azu_cena.com.ar'),
 (4, 'BairesDesign', 'www.baires.com.ar', 'infocito@baires.com.ar'),
 (5, 'APAeperinaPaez', 'www.peperina.com.ar', 'infocito@peperina.com.ar'),
-(6, 'lola', 'lolo.com', 'lola');
+(6, 'lola', 'lolo.com', 'lola'),
+(7, 'laMarcaNueva', 'laMarcaNueva.pipiri.br', 'la_new@jmail.com');
 
 -- --------------------------------------------------------
 
@@ -113,10 +121,12 @@ INSERT INTO `usuario` (`id`, `nombre`, `pass`, `admin`) VALUES
 --
 
 --
--- Indices de la tabla `comentarios`
+-- Indices de la tabla `comentario`
 --
-ALTER TABLE `comentarios`
-  ADD PRIMARY KEY (`id_comentario`);
+ALTER TABLE `comentario`
+  ADD PRIMARY KEY (`id_comentario`),
+  ADD UNIQUE KEY `id_user` (`id_user`),
+  ADD UNIQUE KEY `id_producto` (`id_producto`);
 
 --
 -- Indices de la tabla `marca`
@@ -142,16 +152,16 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `comentarios`
+-- AUTO_INCREMENT de la tabla `comentario`
 --
-ALTER TABLE `comentarios`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `comentario`
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `marca`
 --
 ALTER TABLE `marca`
-  MODIFY `id_marca` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_marca` int(30) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -168,6 +178,13 @@ ALTER TABLE `usuario`
 --
 -- Restricciones para tablas volcadas
 --
+
+--
+-- Filtros para la tabla `comentario`
+--
+ALTER TABLE `comentario`
+  ADD CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `producto` (`id_producto`),
+  ADD CONSTRAINT `comentario_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `usuario` (`id`);
 
 --
 -- Filtros para la tabla `producto`
