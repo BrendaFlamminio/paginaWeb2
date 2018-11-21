@@ -22,8 +22,8 @@ class ProductoController extends SecuredController
     $this->model = new ProductoModel();
     $this->marcaModel = new MarcaModel();
     $this->Titulo = "Lista de Productos";
-    $this->Editable=IsUserLogged();
-    $this->EsAdmin=EsAdmin();
+    $this->Editable=parent::IsUserLogged();
+    $this->EsAdmin=parent::EsAdmin();
     if(!$this->EsAdmin())
       header(HOME);
   }
@@ -31,10 +31,10 @@ class ProductoController extends SecuredController
   function Home(){
       $Productos = $this->model->GetProductos();
       $marcas = $this->marcaModel->GetMarcas();
-      $this->view->Mostrar($this->Titulo, $Productos,$marcas,$Editable,$EsAdmin);
+      $this->view->Mostrar($this->Titulo, $Productos,$marcas,$this->Editable,$this->EsAdmin);
   }
 
-  
+
 
   function editarProducto($param){
       $id_producto = $param[0];
@@ -42,12 +42,12 @@ class ProductoController extends SecuredController
       $Producto = $this->model->GetProducto($id_producto);
       $Marcas = $this->model->GetMarcas();
 
-      $this->view->MostrarEditarProducto("Editar Producto", $Producto, $Marcas,$Editable,$EsAdmin);
+      $this->view->MostrarEditarProducto("Editar Producto", $Producto, $Marcas,$this->Editable,$this->EsAdmin);
   }
 
   function agregarProducto(){
     $Marcas = $this->model->GetMarcas();
-    $this->view->MostrarAgregarProducto("Agregar Producto", $Marcas,$Editable,$EsAdmin);
+    $this->view->MostrarAgregarProducto("Agregar Producto", $Marcas,$this->Editable,$this->EsAdmin);
   }
 
   function GuardarEditarProducto(){

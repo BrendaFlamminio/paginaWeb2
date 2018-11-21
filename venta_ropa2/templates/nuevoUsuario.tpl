@@ -4,7 +4,7 @@
 <form method="post" action="guardaUsuario">
   <div class="form-group" >
     <label for="exampleInputEmail1">Usuario o email</label>
-    <input type="email" class="form-control" name="IdUsuario"  placeholder="Enter email">
+    <input type="text" class="form-control" name="IdUsuario"  placeholder="Enter email">
 
   </div>
   <div class="form-group">
@@ -17,4 +17,5 @@
   </div>
   <button type="submit" class="btn btn-primary">Registrarme</button>
 </form>
+{$Message}
 {include file="footer.tpl"}

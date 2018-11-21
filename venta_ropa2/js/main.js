@@ -1,22 +1,17 @@
 'use strict'
 
-document.getElementById("traerComments").addEventListener("click", function(){
-  console.log("aguanteeei");
   let templateComentario;
 
-  fetch('js/templates/comentarios.handlebars")
+  fetch('js/templates/comentarios.handlebars')
   .then(response => response.text())
   .then(template => {
       templateComentario = Handlebars.compile(template); // compila y prepara el template
 
       getComentarios();
   });
+      
 
-
-
-
-
-});
+}
 
 function getComentarios() {
 

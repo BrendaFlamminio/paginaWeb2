@@ -31,7 +31,7 @@
             {/foreach}
 
 
-            <button type="button" name="button" id="traerComments">Ver Comentarios</button>
+        <a href="../api/comentario/{$Producto['id_producto']}">Ver comentarios</a>
         </div>
         <div id="container">
 

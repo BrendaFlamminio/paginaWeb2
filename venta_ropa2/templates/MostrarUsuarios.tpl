@@ -6,7 +6,7 @@
       <ul class="list-group">
             {foreach from=$Usuarios item=usuario}
 
-                <li class="list-group-item">{$usuario['nombre']} ----- {$usuario['pass']}<a href="borrar/{$usuario['id']}">BORRAR</a> <a href="permitir/{$usuario['id']}">Conceder permisos</a> </li>
+                <li class="list-group-item">{$usuario['nombre']} ----- {$usuario['pass']} {if $usuario['admin']==0} Es usuario  <a href="permitir/{$usuario['id']}/1">Conceder permisos</a> {else} Es adminitrador  <a href="permitir/{$usuario['id']}/0">Quitar permisos</a>{/if}</li>
 
             {/foreach}
       </ul>

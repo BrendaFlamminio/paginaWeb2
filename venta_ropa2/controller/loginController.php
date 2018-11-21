@@ -59,9 +59,18 @@ class LoginController
   function GuardarUsuario(){
     $user = $_POST["IdUsuario"];
     $pass = $_POST["IdPassword"];
+    $usuarioExistente = $this->model->GetUser($user);
+    if (isset($usuarioExistente['nombre'])) {
+
+      $this->view->mostrarRegistro("Este nombre ya existe");
+    }
+    else{
     $hash = password_hash($pass, PASSWORD_DEFAULT);
-    $dbUser = $this->model->postUser($user,$hash);
-    header(HOME);
+    $dbUser = $this->model->InsertarUsuario($user,$hash);
+    session_start();
+    $_SESSION["User"] = $user;
+    header(ADMIN);
+    }
   }
 }
 

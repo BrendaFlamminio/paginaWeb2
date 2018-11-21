@@ -1,4 +1,27 @@
-<!DOCTYPE html>
+<?php
+/* Smarty version 3.1.33, created on 2018-11-21 19:12:11
+  from 'C:\xampp\htdocs\paginaWeb2\venta_ropa2\templates\header.tpl' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5bf59ffbc55742_59988164',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'dc28da3d5607a6c3bf24fd23a52cdbbedf7fe0a0' => 
+    array (
+      0 => 'C:\\xampp\\htdocs\\paginaWeb2\\venta_ropa2\\templates\\header.tpl',
+      1 => 1542823929,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5bf59ffbc55742_59988164 (Smarty_Internal_Template $_smarty_tpl) {
+?><!DOCTYPE html>
 
 <html lang="en">
   <head>
@@ -10,7 +33,8 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>{$Titulo}</title>
+    <title><?php echo $_smarty_tpl->tpl_vars['Titulo']->value;?>
+</title>
   </head>
   <body>
     <div class="container">
@@ -22,20 +46,22 @@
     </div>
       <div class="container">
         <nav class="nav">
-          {if !$Editable}
+          <?php if (!$_smarty_tpl->tpl_vars['Editable']->value) {?>
           <a class="nav-link active" href="home">Inicio</a>
-          {/if}
-          {if $Editable}
+          <?php }?>
+          <?php if ($_smarty_tpl->tpl_vars['Editable']->value) {?>
           <a class="nav-link active" href="admin">Inicio</a>
-              {if $EsAdmin}
+              <?php if ($_smarty_tpl->tpl_vars['EsAdmin']->value) {?>
                   <a class="nav-link" href="agregarMarca">Nueva marca</a>
                   <a class="nav-link" href="nuevoProducto">Nuevo producto</a>
                   <a class="nav-link" href="mostrarUsuarios">Administar usuarios</a>
-              {/if}
+              <?php }?>
               <a class="nav-link " href="CerrarSesion">Cerrar Sesion</a>
-        {else}
+        <?php } else { ?>
         <a class="nav-link" href="nuevoUsuario">Registrarse</a>
         <a class="nav-link " href="login">Iniciar Sesion</a>
-        {/if}
+        <?php }?>
 
       </div>
+<?php }
+}

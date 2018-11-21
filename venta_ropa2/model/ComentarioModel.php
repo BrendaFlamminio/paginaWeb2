@@ -3,7 +3,7 @@
     private $db;
 
     function __construct(){
-      $this->db-> $this->connect();
+      $this->db= $this->connect();
 
     }
 
@@ -13,17 +13,12 @@
       ,'root', '');
     }
 
-    public function getComentarios($id_producto ){
+    public function getComentario($id_producto ){
       $sentencia = $this->db->prepare("select * from comentario where id_producto = ?");
       $sentencia->execute(array($id_producto));
       return $sentencia->fetchAll(PDO::FETCH_ASSOC);
     }
-
-    public function getComentarios(){
-      $sentencia = $this->db->prepare("select * from comentario ");
-      $sentencia->execute();
-      return $sentencia->fetchAll(PDO::FETCH_ASSOC);
-    }
+    
 
 
     public function deleteComentario($id){

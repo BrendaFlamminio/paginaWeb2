@@ -6,7 +6,7 @@
   class ComentarioController extends Api{
     private $model;
 
-    public  __construct(){
+    function __construct(){
       parent::__construct();
       $this->model = new ComentarioModel();
     }
@@ -53,7 +53,7 @@
       }
 
 
-  }
+  
 
 
 

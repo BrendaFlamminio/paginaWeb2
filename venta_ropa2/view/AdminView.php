@@ -24,13 +24,13 @@ class AdminView
   }
 
   function MostrarUsuario($Titulo, $Usuarios,$Editable,$EsAdmin){
-    $smarty = new Smarty();
-    $smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
-    $smarty->assign('Usuarios',$Usuarios);
+
+    $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
+    $this->Smarty->assign('Usuarios',$Usuarios);
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     //$smarty->debugging = true;
-    $smarty->display('templates/MostrarUsuarios.tpl');
+    $this->Smarty->display('templates/MostrarUsuarios.tpl');
   }
 
 }

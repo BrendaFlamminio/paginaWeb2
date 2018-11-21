@@ -34,7 +34,8 @@ class ConfigApp
       'detalleMarca' => 'HomeController#MostrarDetalleMarca',
       'nuevoUsuario'=>'loginController#RegistrarUsuario',
       'guardaUsuario'=>'loginController#GuardarUsuario',
-      'filtrarProductos' => 'HomeController#filtrarPorMarca'
+      'filtrarProductos' => 'HomeController#filtrarPorMarca',
+      'permitir'=>'adminController#permitir',
     ];
 
 }
