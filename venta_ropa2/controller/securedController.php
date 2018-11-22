@@ -24,6 +24,7 @@ class SecuredController
   function IsUserLogged(){
       return isset($_SESSION["User"]);
   }
+
   function EsAdmin(){
     if(isset($_SESSION)){
      if ($_SESSION["User"]['admin'] == '1')

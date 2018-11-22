@@ -35,6 +35,9 @@ class ConfigApp
       'nuevoUsuario'=>'loginController#RegistrarUsuario',
       'guardaUsuario'=>'loginController#GuardarUsuario',
       'filtrarProductos' => 'HomeController#filtrarPorMarca',
+      'borrarImagen' => 'ImagenController#deleteImagen',
+      'nuevaImagen' => 'ImagenController#postImagen',
+      'mostrarImagenes' => 'ImagenController#getImagenes',
       'permitir'=>'adminController#permitir',
     ];
 

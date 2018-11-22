@@ -31,9 +31,8 @@
       {if $EsAdmin }
       <th scope="col">Editar</th>
       <th scope="col">Borrar</th>
-      {else}
-      <th scope="col">Detalle</th>
       {/if}
+      <th scope="col">Detalle</th>
     </tr>
   </thead>
   <tbody>
@@ -45,10 +44,9 @@
       <td></td>
       {if $EsAdmin }
       <td><a href="editarProducto/{$producto['id_producto']}">EDITAR</a></td>
-      <td><a href="borrarProducto/{$producto['id_producto']}">BORRAR</a></td>
-      {else}
-      <td><a href="detalleProducto/{$producto['id_producto']}" id="detalle">DETALLE</a></td>
+      <td><a href="borrarProducto/{$producto['id_producto']}">BORRAR</a></td>    
       {/if}
+        <td><a href="detalleProducto/{$producto['id_producto']}" id="detalle">DETALLE</a></td>
     </tr>
       {/foreach}
   </tbody>

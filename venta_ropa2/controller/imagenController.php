@@ -1,26 +1,44 @@
 <?php
-  require_once "securedController.php";
-
+   require_once  "SecuredController.php";
+  require_once "./model/ImagenModel.php";
+  require_once "./view/ImagenView.php";
+  require_once "homeController.php";
   class ImagenController extends SecuredController
   {
     private $model;
-
-    function __construct(argument)
+    private $view;
+    private $home;
+    function __construct()
     {
+
       $this->model = new ImagenModel();
+      $this->view = new ImagenView();
+      $this->home = new HomeController();
+    }
+
+    function getImagenes($param){
+      session_start();
+      $imagenes = $this->model->getImagenes($param);
+      $this->view->mostrar("imagenes",$imagenes,$this->EsAdmin());
+    }
+
+    function deleteImagen($param){
+      $this->model->deleteImagen($param[0]);
+      header(ADMIN);
 
     }
 
-    function getImagenenes(){
+    function postImagen($param){
+      $id_producto= $_POST['idForm'];
+      $name= $_REQUEST['textNom'];
+      $ruta =$_FILES['imagen']['tmp_name'];
+      $type = $_FILES['imagen']['type'];
+      $arrayType= explode("/",$type);
+      $destino ="images/".$name.".".$arrayType[1];
 
-    }
-
-    function deleteImagen(){
-
-    }
-
-    function postImagen(){
-      
+      move_uploaded_file($ruta,$destino);
+      $this->model->postImagen($name,$destino,$param[0]);
+      header(ADMIN);
     }
 
   }

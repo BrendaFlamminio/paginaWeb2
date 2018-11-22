@@ -8,6 +8,7 @@ require_once "controller/ProductoController.php";
 require_once "controller/MarcaController.php";
 require_once "controller/loginController.php";
 require_once "controller/securedController.php";
+require_once "controller/imagenController.php";
 
 function parseURL($url)
 {

@@ -15,14 +15,14 @@ class ImagenModel {
   }
 
   function getImagenes($id_producto){
-    $sentecia = $this->db->prepare("SELECT * from imagen where id_producto = ?");
-    $sentecia->execute(array($id_producto));
-    return $sentencia->fetchAll(PDP::FETCH_ASSOC);
+    $sentencia = $this->db->prepare("SELECT * from imagen where id_producto = ?");
+    $sentencia->execute(array($id_producto[0]));
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
 
 
   function deleteImagen($id_imagen){
-    $sentencia = $this->db->prepare("DELETE from imagen where id_imagen=?");
+    $sentencia = $this->db->prepare("DELETE FROM imagen WHERE id_imagen = ?");
     $sentencia->execute(array($id_imagen));
 
   }
