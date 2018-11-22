@@ -3,7 +3,7 @@
 
  class ImagenView {
    private $Smarty;
-
+   
    function __construct(){
       $this->Smarty = new Smarty();
    }

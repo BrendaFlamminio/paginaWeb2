@@ -42,6 +42,8 @@
                 <a href="{$Home}/borrarImagen/{$imagen['id_imagen']}">delete</a>
                 {/if}
             </div>
+          </div>
+        </div>
 
             {/foreach}
 

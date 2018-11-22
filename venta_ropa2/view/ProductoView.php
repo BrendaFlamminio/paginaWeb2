@@ -6,11 +6,11 @@ require_once('./libs/Smarty.class.php');
 class ProductoView
 {
   private $Smarty;
-
+  private $base;
   function __construct()
   {
     $this->Smarty = new Smarty();
-
+    $this->base =  "http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]);
   }
 
   function Mostrar($Titulo, $Productos,$marcas,$Editable,$EsAdmin){
@@ -21,6 +21,7 @@ class ProductoView
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->display('templates/producto.tpl');
+    $this->Smarty->assign('base',$this->base);
   }
 
   function MostrarEditarProducto($Titulo, $Producto, $Marcas,$Editable,$EsAdmin){
@@ -32,6 +33,7 @@ class ProductoView
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->display('templates/MostrarEditarProducto.tpl');
+    $this->Smarty->assign('base',$this->base);
   }
 
   function MostrarDetalleProducto($Titulo, $Producto,$imagenes, $Marcas,$Editable,$EsAdmin){
@@ -43,9 +45,10 @@ class ProductoView
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->assign('Home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
-
+    $this->Smarty->assign('base',$this->base);
 
     $this->Smarty->display('templates/MostrarDetalleProducto.tpl');
+
   }
 
   function MostrarAgregarProducto($Titulo, $Marcas,$Editable,$EsAdmin){
@@ -56,6 +59,7 @@ class ProductoView
     $this->Smarty->assign('Editable',$Editable);
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->assign('Home',"http://".$_SERVER["SERVER_NAME"] . dirname($_SERVER["PHP_SELF"]));
+    $this->Smarty->assign('base',$this->base);
 
 
     $this->Smarty->display('templates/MostrarAgregarProducto.tpl');
