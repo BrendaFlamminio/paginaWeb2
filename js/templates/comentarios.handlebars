@@ -2,9 +2,11 @@
  <ul class="list-group">
   {{#each comentarios}}
 
-      <li class="list-group-item"><s>{{texto}} ----- {{puntaje}}</s><a href="borrar/{{id}}">BORRAR</a></li>
+      <li class="list-group-item">{{texto}} Puntaje: {{puntaje}}
+        {{#if EsAdmin}}
+        <a href="borrar/{{id}}">BORRAR</a></li>
+        {{/if}}
 
-  
 
   {{/each}}
 </ul>

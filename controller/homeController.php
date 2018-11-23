@@ -17,6 +17,7 @@ class HomeController extends SecuredController
   private $modelProducto;
   private $Titulo;
   private $modelImagen;
+  private $id_user;
   function __construct()
   {
 
@@ -27,6 +28,7 @@ class HomeController extends SecuredController
     $this->modelMarca = new MarcaModel();
     $this->modelImagen= new ImagenModel();
     $this->Titulo = "Ver productos y marcas";
+    //$this->id_user =  $_SESSION["User"]["id"];
   }
 
   function Home(){
@@ -47,12 +49,13 @@ class HomeController extends SecuredController
   }
 
   function MostrarDetalleProducto($param){
+
       $id_producto = $param[0];
       $Producto = $this->modelProducto->GetProducto($id_producto);
       $Marcas = $this->modelMarca->GetMarcas();
       $imagenes = $this->modelImagen->getImagenes($id_producto);
       session_start();
-      $this->viewProducto->MostrarDetalleProducto("Ver Producto", $Producto,$imagenes, $Marcas,$this->IsUserLogged(),$this->EsAdmin());
+      $this->viewProducto->MostrarDetalleProducto("Ver Producto", $Producto,$imagenes, $Marcas,$this->IsUserLogged(),$this->EsAdmin(),$this->idUsuario());
 
   }
 

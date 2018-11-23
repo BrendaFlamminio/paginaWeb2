@@ -31,7 +31,8 @@
             {/foreach}
 
 
-        <a href="api/comentario/{$Producto['id_producto']}">Ver comentarios</a>
+        <input type="hidden" name="button" id ="traerComentarios" value = "{$Producto['id_producto']}"> </input>
+
         </div>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -50,6 +51,9 @@
             {if $EsAdmin}
             <form class="" action="nuevaImagen/{$Producto['id_producto']}" method="post" enctype="multipart/form-data">
               <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$Producto['id_producto']}">
+              <input type="hidden" name="esAdmin" value="{$EsAdmin}">
+              <input type= "hidden" name="esAdmin" id="idUsuario" value="{$idUser}">
+
               <table>
                   <tr>
                     <td>
@@ -74,9 +78,34 @@
 
           </div>
         </div>
+
         <div id="container">
 
         </div>
+
+          {if $Editable}
+
+                <form >
+                  <input type="hidden" class="form-control" id="idProducto" name="idForm" value="{$Producto['id_producto']}">
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Dejanos tu voto para este producto</label>
+                    <select class="form-control" id="puntaje">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Escribe aqui tu comentario</label>
+                    <input type="text" class="form-control" id="texto" rows="3"
+                    value=""></input>
+                  </div>
+                  <button type="button" class="btn btn-primary" id ="nuevoComment">Agregar</button>
+                </form>
+          {/if}
     </div>
 
 {include file="footer.tpl"}

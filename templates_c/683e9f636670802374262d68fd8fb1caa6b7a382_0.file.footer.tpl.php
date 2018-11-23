@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-22 23:00:08
+/* Smarty version 3.1.33, created on 2018-11-22 23:24:29
   from 'C:\xampp\htdocs\ventaRopa\templates\footer.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bf726e8a50381_94780713',
+  'unifunc' => 'content_5bf72c9dc13385_53375048',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '683e9f636670802374262d68fd8fb1caa6b7a382' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ventaRopa\\templates\\footer.tpl',
-      1 => 1542809964,
+      1 => 1542925387,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5bf726e8a50381_94780713 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf72c9dc13385_53375048 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div class="jumbotron bg-dark col-md-12 col-sm-12">
     <div class="row">
       <div class="col-sm-12 col-md-12 redes">
@@ -49,7 +49,7 @@ function content_5bf726e8a50381_94780713 (Smarty_Internal_Template $_smarty_tpl)
 >
 
     <?php echo '<script'; ?>
- src="../js/main.js"> <?php echo '</script'; ?>
+ src="js/main.js"> <?php echo '</script'; ?>
 >
 
   </body>

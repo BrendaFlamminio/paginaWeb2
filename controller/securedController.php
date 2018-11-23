@@ -25,14 +25,24 @@ class SecuredController
       return isset($_SESSION["User"]);
   }
 
+  function idUsuario(){
+    return $_SESSION["User"]["id"];
+  }
+
   function EsAdmin(){
     if(isset($_SESSION)){
+      if(isset($_SESSION["User"]['admin'] )){
      if ($_SESSION["User"]['admin'] == '1'){
     return true;
+
   }else{
       return false;
     }
-  }else {
+  }else{
+    return false;
+  }
+}
+  else {
       return false;
     }
 

@@ -36,7 +36,7 @@ class ProductoView
     $this->Smarty->assign('base',$this->base);
   }
 
-  function MostrarDetalleProducto($Titulo, $Producto,$imagenes, $Marcas,$Editable,$EsAdmin){
+  function MostrarDetalleProducto($Titulo, $Producto,$imagenes, $Marcas,$Editable,$EsAdmin,$id_user){
 
     $this->Smarty->assign('Titulo',$Titulo); // El 'Titulo' del assign puede ser cualquier valor
     $this->Smarty->assign('Producto',$Producto);
@@ -46,6 +46,7 @@ class ProductoView
     $this->Smarty->assign('EsAdmin',$EsAdmin);
     $this->Smarty->assign('Home','//'.$_SERVER['SERVER_NAME'].dirname($_SERVER['PHP_SELF']).'/');
     $this->Smarty->assign('base',$this->base);
+    $this->Smarty->assign('idUser',$id_user);
 
     $this->Smarty->display('templates/MostrarDetalleProducto.tpl');
 

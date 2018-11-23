@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-22 23:17:47
+/* Smarty version 3.1.33, created on 2018-11-23 01:32:06
   from 'C:\xampp\htdocs\ventaRopa\templates\MostrarDetalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bf72b0b0d2813_21387742',
+  'unifunc' => 'content_5bf74a865f2967_76037239',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'abc658f0030ffb7560bec7ce60fac357c2e420af' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ventaRopa\\templates\\MostrarDetalleProducto.tpl',
-      1 => 1542925062,
+      1 => 1542933119,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bf72b0b0d2813_21387742 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf74a865f2967_76037239 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -70,8 +70,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['marca']->value) {
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
 
-        <a href="api/comentario/<?php echo $_smarty_tpl->tpl_vars['Producto']->value['id_producto'];?>
-">Ver comentarios</a>
+        <input type="hidden" name="button" id ="traerComentarios" value = "<?php echo $_smarty_tpl->tpl_vars['Producto']->value['id_producto'];?>
+"> </input>
+
         </div>
         <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner">
@@ -101,6 +102,11 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " method="post" enctype="multipart/form-data">
               <input type="hidden" class="form-control" id="idForm" name="idForm" value="<?php echo $_smarty_tpl->tpl_vars['Producto']->value['id_producto'];?>
 ">
+              <input type="hidden" name="esAdmin" value="<?php echo $_smarty_tpl->tpl_vars['EsAdmin']->value;?>
+">
+              <input type= "hidden" name="esAdmin" id="idUsuario" value="<?php echo $_smarty_tpl->tpl_vars['idUser']->value;?>
+">
+
               <table>
                   <tr>
                     <td>
@@ -125,9 +131,35 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
           </div>
         </div>
+
         <div id="container">
 
         </div>
+
+          <?php if ($_smarty_tpl->tpl_vars['Editable']->value) {?>
+
+                <form >
+                  <input type="hidden" class="form-control" id="idProducto" name="idForm" value="<?php echo $_smarty_tpl->tpl_vars['Producto']->value['id_producto'];?>
+">
+                  <div class="form-group">
+                    <label for="exampleFormControlSelect1">Dejanos tu voto para este producto</label>
+                    <select class="form-control" id="puntaje">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Escribe aqui tu comentario</label>
+                    <input type="text" class="form-control" id="texto" rows="3"
+                    value=""></input>
+                  </div>
+                  <button type="button" class="btn btn-primary" id ="nuevoComment">Agregar</button>
+                </form>
+          <?php }?>
     </div>
 
 <?php $_smarty_tpl->_subTemplateRender("file:footer.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);

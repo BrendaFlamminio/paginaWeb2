@@ -27,7 +27,7 @@
     }
 
     public function updateComentarios($texto,$puntaje,$id_user,$id_producto){
-      $sentecia = $this->db->prepare("INSERT INTO comentario(texto,puntaje,id_user,id_producto) values(?,?,?,?)");
+      $sentencia = $this->db->prepare("INSERT INTO comentario(texto,puntaje,id_user,id_producto) values(?,?,?,?)");
       $sentencia->execute(array($texto,$puntaje,$id_user,$id_producto));
     }
 
