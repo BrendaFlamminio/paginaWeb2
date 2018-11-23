@@ -29,14 +29,14 @@
         }
 
       public function borrarComentario($id = null){
-        if(count($id) == 1){
+        if(isset($id)){
             $id_producto = $id[0];
-            $r =  $this->model->deleteComentario($id_producto);
-            if($r == false){
-              return $this->json_response($r, 300);
+            $data =  $this->model->deleteComentario($id_producto);
+            if(isset($data)){
+              return $this->json_response($data, 300);
             }
 
-            return $this->json_response($r, 200);
+            return $this->json_response($data, 200);
         }else{
           return  $this->json_response("No task specified", 300);
         }

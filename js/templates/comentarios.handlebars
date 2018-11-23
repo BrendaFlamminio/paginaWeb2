@@ -3,10 +3,10 @@
   {{#each comentarios}}
 
       <li class="list-group-item">{{texto}} Puntaje: {{puntaje}}
-        {{#if EsAdmin}}
-        <a href="borrar/{{id}}">BORRAR</a></li>
-        {{/if}}
+
+        <button type="button" class="js-borrar" name="{{id_comentario}}" >BORRAR</button>
 
 
+      </li>
   {{/each}}
 </ul>

@@ -21,9 +21,9 @@
 
 
 
-    public function deleteComentarios($id){
+    public function deleteComentario($id){
       $sentencia = $this->db->prepare("delete from comentario where id_comentario= ?");
-      $sentencia->execute($id);
+      $sentencia->execute(array($id));
     }
 
     public function updateComentarios($texto,$puntaje,$id_user,$id_producto){

@@ -51,7 +51,7 @@
             {if $EsAdmin}
             <form class="" action="nuevaImagen/{$Producto['id_producto']}" method="post" enctype="multipart/form-data">
               <input type="hidden" class="form-control" id="idForm" name="idForm" value="{$Producto['id_producto']}">
-              <input type="hidden" name="esAdmin" value="{$EsAdmin}">
+              <input type="hidden" name="esAdmin" id= "admin" value="{$EsAdmin}">
               <input type= "hidden" name="esAdmin" id="idUsuario" value="{$idUser}">
 
               <table>

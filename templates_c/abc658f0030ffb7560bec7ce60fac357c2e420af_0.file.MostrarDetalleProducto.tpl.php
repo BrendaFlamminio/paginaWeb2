@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.33, created on 2018-11-23 01:32:06
+/* Smarty version 3.1.33, created on 2018-11-23 02:20:16
   from 'C:\xampp\htdocs\ventaRopa\templates\MostrarDetalleProducto.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.33',
-  'unifunc' => 'content_5bf74a865f2967_76037239',
+  'unifunc' => 'content_5bf755d0428721_66469915',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'abc658f0030ffb7560bec7ce60fac357c2e420af' => 
     array (
       0 => 'C:\\xampp\\htdocs\\ventaRopa\\templates\\MostrarDetalleProducto.tpl',
-      1 => 1542933119,
+      1 => 1542935948,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ),false)) {
-function content_5bf74a865f2967_76037239 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5bf755d0428721_66469915 (Smarty_Internal_Template $_smarty_tpl) {
 $_smarty_tpl->_subTemplateRender("file:header.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
@@ -102,7 +102,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 " method="post" enctype="multipart/form-data">
               <input type="hidden" class="form-control" id="idForm" name="idForm" value="<?php echo $_smarty_tpl->tpl_vars['Producto']->value['id_producto'];?>
 ">
-              <input type="hidden" name="esAdmin" value="<?php echo $_smarty_tpl->tpl_vars['EsAdmin']->value;?>
+              <input type="hidden" name="esAdmin" id= "admin" value="<?php echo $_smarty_tpl->tpl_vars['EsAdmin']->value;?>
 ">
               <input type= "hidden" name="esAdmin" id="idUsuario" value="<?php echo $_smarty_tpl->tpl_vars['idUser']->value;?>
 ">
