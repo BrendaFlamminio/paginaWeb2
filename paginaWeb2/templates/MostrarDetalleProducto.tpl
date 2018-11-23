@@ -76,11 +76,10 @@
             </form>
             {/if}
 
-          </div>
-        </div>
+
 
         <div id="container">
-
+          
         </div>
 
           {if $Editable}
